@@ -1,0 +1,41 @@
+# Titik logistik + asumsi biaya. Dibaca oleh scripts/fetch_distances.py
+#
+# pos: [lat, lon]  -> ISI MANUAL. Di Google Maps: klik kanan pada JALAN terdekat
+#                     titik tersebut, klik angka koordinat untuk menyalin.
+#                     Letakkan tepat di jalan; ORS menolak titik yang terlalu jauh dari jalan.
+# terrain          -> faktor medan 1.0 / 1.5 / 2.0 (ASUMSI awal, sesuaikan).
+#                     Faktor sebuah edge = nilai terbesar dari kedua ujungnya.
+
+# Titik logistik + asumsi biaya. Dibaca oleh scripts/fetch_distances.py
+
+settings:
+  case_id: "case_mst_papua"
+  title: "Optimasi Jaringan Logistik Material Trans Papua dengan MST"
+  tarif_per_ton_km: 5      # Rp ribu / ton-km
+  bongkar_muat: 20         # Rp ribu / ton, tetap per edge
+  knn: 5                   # tiap titik dihubungkan ke 5 titik terdekat
+  start_node: 0
+  goal_node: 11
+
+nodes:
+- {id: 0,  label: "Pelabuhan Jayapura", terrain: 1.0, pos: [-2.544018, 140.707103]} # Jl. Koti / Gerbang Pelabuhan Jayapura
+- {id: 1,  label: "Depapre",            terrain: 1.0, pos: [-2.461958, 140.367516]} # Jl. Raya Depapre
+- {id: 2,  label: "Sentani",            terrain: 1.0, pos: [-2.568238, 140.512377]} # Jl. Raya Sentani - Kemiri
+- {id: 3,  label: "Genyem",             terrain: 1.0, pos: [-2.618722, 140.174167]} # Jl. Raya Genyem - Nimboran
+- {id: 4,  label: "Lereh",              terrain: 1.5, pos: [-2.771682, 140.671010]} # Jl. Trans Papua Arso (Gerbang Timur)
+- {id: 5,  label: "Kasonaweja",         terrain: 1.5, pos: [-2.060066, 139.066283]} # Jl. Raya Sarmi - Bonggo (Pos Koridor Utara)
+- {id: 6,  label: "Dabra",              terrain: 1.5, pos: [-3.428057, 140.780429]} # Jl. Trans Papua Senggi (Pos Koridor Tengah)
+- {id: 7,  label: "BC Mamberamo",       terrain: 2.0, pos: [-3.590421, 140.780909]} # Jl. Trans Papua Ubrub (Base Camp Segmen Tengah)
+- {id: 8,  label: "Quarry Mamberamo",   terrain: 2.0, pos: [-3.396993, 140.795903]} # Jl. Trans Papua Senggi - Ubrub (Area Quarry)
+- {id: 9,  label: "Stockpile Tengah",   terrain: 2.0, pos: [-3.735857, 140.384258]} # Jl. Trans Papua Yetti - Elelim (Stockpile)
+- {id: 10, label: "BC Elelim",          terrain: 2.0, pos: [-3.784864, 139.365939]} # Jl. Trans Papua Elelim (Yalimo)
+- {id: 11, label: "Wamena",             terrain: 2.0, pos: [-4.097374, 138.945079]} # Jl. Yos Sudarso / Trans Papua Wamena
+- {id: 12, label: "Bandara Sentani",    terrain: 1.0, pos: [-2.568701, 140.523909]} # Jl. Raya Kemiri (depan Bandara)
+- {id: 13, label: "Nimbokrang",         terrain: 1.0, pos: [-2.581127, 140.130517]} # Jl. Raya Nimbokrang
+- {id: 14, label: "Unurum Guay",        terrain: 1.0, pos: [-2.441200, 139.812500]} # Jl. Raya Nimbokrang - Bonggo
+- {id: 15, label: "Namblong",           terrain: 1.0, pos: [-2.634062, 140.215291]} # Jl. Raya Namblong
+- {id: 16, label: "Sarmi",              terrain: 1.5, pos: [-1.878169, 138.751018]} # Jl. Raya Sarmi Kota
+- {id: 17, label: "Bonggo",             terrain: 1.5, pos: [-2.307411, 139.565676]} # Jl. Raya Bonggo - Sarmi
+- {id: 18, label: "Kobakma",            terrain: 2.0, pos: [-3.681221, 139.062982]} # Jl. Trans Papua Cabang Kobakma
+- {id: 19, label: "Kurulu",             terrain: 2.0, pos: [-3.953969, 138.917355]} # Jl. Trans Papua Wamena - Elelim (Kurulu)
+- {id: 20, label: "Bandara Wamena",     terrain: 2.0, pos: [-4.104694, 138.954767]} # Jl. Gatot Subroto / Akses Bandara Wamena
